@@ -1,0 +1,622 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.16
+-- Dumped by pg_dump version 10.16
+
+-- Started on 2021-06-01 18:49:38
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 3108 (class 0 OID 18644)
+-- Dependencies: 215
+-- Data for Name: administracion_adm_sucursal; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_adm_sucursal (id, sucursal, descripcion, estado) FROM stdin;
+1	Matriz	Principal	t
+2	Centro	Centro de la ciudad	t
+\.
+
+
+--
+-- TOC entry 3110 (class 0 OID 18652)
+-- Dependencies: 217
+-- Data for Name: administracion_opt_diagnostico; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_diagnostico (id, codigo, diagnostico) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3130 (class 0 OID 18741)
+-- Dependencies: 237
+-- Data for Name: administracion_opt_paciente; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_paciente (id, codigo, nombres, apellidos, "fechaNacimiento", direccion, ocupacion, telefono, observacion, "observacionAvance", sucursal_id, estado) FROM stdin;
+2	PA-001	Andres	Viera	1991-02-28	AMBATO	Desarrollador de software	0995351473	prueba de observacion	prueba de observacion Avance	1	t
+\.
+
+
+--
+-- TOC entry 3122 (class 0 OID 18703)
+-- Dependencies: 229
+-- Data for Name: administracion_opt_transaccion; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_transaccion (id, transaccion, estado) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3112 (class 0 OID 18663)
+-- Dependencies: 219
+-- Data for Name: administracion_opt_examenes; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_examenes (id, fecha, estado, paciente_id, transaccion_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3136 (class 0 OID 18774)
+-- Dependencies: 243
+-- Data for Name: administracion_opt_lentes_contacto; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_lentes_contacto (id, "examenExternoOjoDerecho", "examenExternoOjoIzquierdo", "topografiaOjoDerecho", "topografiaOjoIzquierdo", but, schirmer, "curvaFinalOD", "poderFinalOD", "diametroFinalOD", "materialFinalOD", "diseñoFinalOD", "curvaFinalOI", "poderFinalOI", "diametroFinalOI", "materialFinalOI", "diseñoFinalOI", id_examen_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3134 (class 0 OID 18763)
+-- Dependencies: 241
+-- Data for Name: administracion_opt_oftalmologia; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_oftalmologia (id, "OftOjoDerecho", "imagenOftOjoDerecho", "imagenOftOjoIzquierdo", "BioOjoDerecho", "imagenBioOjoDerecho", "BioOjoIzquierdo", "imagenBioOjoIzquierdo", diagnostico, tratamiento, diagnostico1, diagnostico2, diagnostico3, "vlOjoDerechoSC", "vlOjoIzquierdoSC", "vlOjoDerechoCC", "vlOjoIzquierdoCC", consulta, id_examen_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3114 (class 0 OID 18671)
+-- Dependencies: 221
+-- Data for Name: administracion_opt_ortoptica_tipo; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_ortoptica_tipo (id, tipo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3120 (class 0 OID 18695)
+-- Dependencies: 227
+-- Data for Name: administracion_opt_tipo_test_dem; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_tipo_test_dem (id, nombre) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3132 (class 0 OID 18752)
+-- Dependencies: 239
+-- Data for Name: administracion_opt_ortoptica; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_ortoptica (id, "Kappa_oi", "Hishberg", "Ducciones_od", "Ducciones_oi", "Versiones1_Version1", "Versiones2_Version1", "Versiones3_Version1", "Versiones4_Version1", "Versiones5_Version1", "Versiones6_Version1", "Versiones7_Version2", "Versiones8_Version2", "Versiones9_Version2", "Versiones10_Version2", "Versiones11_Version2", "Versiones12_Version2", observacion, "CovertTestVL", "CovertTestVL40cm", "PPC_OR", "PPC_LUZ", "PPC_LUZ_FR", "Estereopsis", "Estereopsis_AC_A", "Vergencia_Reserva_VL_RFP", "Vergencia_Reserva_VL_RFN", "Vergencia_Reserva_VL_Facilidad", "Kappa_od", "Vergencia_Reserva_VP_RFP", "Vergencia_Reserva_VP_RFN", "Vergencia_Reserva_VP_Facilidad", "ACC_OD", "ACC_OI", "ACC_ARP", "ACC_ARN", "Facilidad_ACC_OD", "Facilidad_ACC_OI", "Facilidad_ACC_AMBOS", "AA_Moda_Subjetivo_OD", "AA_Moda_Subjetivo_OI", "AA_Moda_Objetivo_OD", "AA_Moda_Objetivo_OI", "Cuadro_Medidas_VL1", "Cuadro_Medidas_VL2", "Cuadro_Medidas_VL3", "Cuadro_Medidas_VL4", "Cuadro_Medidas_VL5", "Cuadro_Medidas_VL6", "Cuadro_Medidas_VL7", "Cuadro_Medidas_VL8", "Cuadro_Medidas_VL9", "Cuadro_Medidas_VP1", "Cuadro_Medidas_VP2", "Cuadro_Medidas_VP3", "Cuadro_Medidas_VP4", "Cuadro_Medidas_VP5", "Cuadro_Medidas_VP6", "Cuadro_Medidas_VP7", "Cuadro_Medidas_VP8", "Cuadro_Medidas_VP9", "TestAdd", "Oclusion_Mavlow_VP", "Test_Bielschosky1", "Test_Bielschosky2", "Vl_Luces_Worth", "Vp_Luces_Worth", "Bagolini_Objetivo", "Bagolini_Subjetivo", "Mom_Test_Dem_H", "Mom_Test_Dem_V", "Mom_Test_Dem_R", "Mom_Test_Dem_Sumatoria", "Mom_Test_Dem_Observaciones", "Mom_Test_Dem_Diagnostico", "Mom_Test_Dem_Plan", "Mom_Test_Dem_Tipo_id", "Test_Adicionales_Base_Externa_id", "idVergencia_Facilidad_ACC_AMBOS_id", "idVergencia_Facilidad_ACC_OD_id", "idVergencia_Facilidad_ACC_OI_id", "idVergencia_Falla_VL_id", "idVergencia_Falla_VP_id", id_examen_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3128 (class 0 OID 18730)
+-- Dependencies: 235
+-- Data for Name: administracion_opt_refraccion; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_refraccion (id, "finalOjoDerecho", "puntajeFinalOjoDerecho", "finalOjoIzquierdo", "puntajeFinalOjoIzquierdo", "finalAdd", "puntajeFinalAdd", "titMus", ishihara, "AmslerOD", "AmslerOI", dp, diagnostico, diagnostico1, diagnostico2, diagnostico3, tratamiento, consulta, antecedentes, biomicroscopia, "motilidadOcular", "POI", "POD", id_examen_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3116 (class 0 OID 18679)
+-- Dependencies: 223
+-- Data for Name: administracion_opt_refraccion_tipo_estado; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_refraccion_tipo_estado (id, nombre) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3126 (class 0 OID 18722)
+-- Dependencies: 233
+-- Data for Name: administracion_opt_refraccion_estado; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_refraccion_estado (id, "ojoDerecho", "ojoIzquierdo", id_examen_id, "id_tipoEstado_id") FROM stdin;
+\.
+
+
+--
+-- TOC entry 3124 (class 0 OID 18711)
+-- Dependencies: 231
+-- Data for Name: administracion_opt_refraccion_vision; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_refraccion_vision (id, "vlOjoDerechoSC", "vlOjoIzquierdoSC", "vlOjoDerechoCC", "vlOjoIzquierdoCC", "vpOjoDerechoSC", "vpOjoIzquierdoSC", "vpOjoDerechoCC", "vpOjoIzquierdoCC", "rxOjoDerecho", "rxOjoIzquierdo", "qtOjoDerecho", "qtOjoIzquierdo", "atrOjoDerecho", "atrOjoIzquierdo", id_examen_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3118 (class 0 OID 18687)
+-- Dependencies: 225
+-- Data for Name: administracion_opt_test_adicional_tipo; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.administracion_opt_test_adicional_tipo (id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3096 (class 0 OID 18524)
+-- Dependencies: 203
+-- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.auth_group (id, name) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3092 (class 0 OID 18506)
+-- Dependencies: 199
+-- Data for Name: django_content_type; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.django_content_type (id, app_label, model) FROM stdin;
+1	admin	logentry
+2	auth	permission
+3	auth	group
+4	auth	user
+5	contenttypes	contenttype
+6	sessions	session
+7	administracion	adm_sucursal
+8	administracion	opt_diagnostico
+9	administracion	opt_examenes
+10	administracion	opt_ortoptica_tipo
+11	administracion	opt_refraccion_tipo_estado
+12	administracion	opt_test_adicional_tipo
+13	administracion	opt_tipo_test_dem
+14	administracion	opt_transaccion
+15	administracion	opt_refraccion_vision
+16	administracion	opt_refraccion_estado
+17	administracion	opt_refraccion
+18	administracion	opt_paciente
+19	administracion	opt_ortoptica
+20	administracion	opt_oftalmologia
+21	administracion	opt_lentes_contacto
+\.
+
+
+--
+-- TOC entry 3094 (class 0 OID 18516)
+-- Dependencies: 201
+-- Data for Name: auth_permission; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
+1	Can add log entry	1	add_logentry
+2	Can change log entry	1	change_logentry
+3	Can delete log entry	1	delete_logentry
+4	Can view log entry	1	view_logentry
+5	Can add permission	2	add_permission
+6	Can change permission	2	change_permission
+7	Can delete permission	2	delete_permission
+8	Can view permission	2	view_permission
+9	Can add group	3	add_group
+10	Can change group	3	change_group
+11	Can delete group	3	delete_group
+12	Can view group	3	view_group
+13	Can add user	4	add_user
+14	Can change user	4	change_user
+15	Can delete user	4	delete_user
+16	Can view user	4	view_user
+17	Can add content type	5	add_contenttype
+18	Can change content type	5	change_contenttype
+19	Can delete content type	5	delete_contenttype
+20	Can view content type	5	view_contenttype
+21	Can add session	6	add_session
+22	Can change session	6	change_session
+23	Can delete session	6	delete_session
+24	Can view session	6	view_session
+25	Can add adm_sucursal	7	add_adm_sucursal
+26	Can change adm_sucursal	7	change_adm_sucursal
+27	Can delete adm_sucursal	7	delete_adm_sucursal
+28	Can view adm_sucursal	7	view_adm_sucursal
+29	Can add opt_diagnostico	8	add_opt_diagnostico
+30	Can change opt_diagnostico	8	change_opt_diagnostico
+31	Can delete opt_diagnostico	8	delete_opt_diagnostico
+32	Can view opt_diagnostico	8	view_opt_diagnostico
+33	Can add opt_examenes	9	add_opt_examenes
+34	Can change opt_examenes	9	change_opt_examenes
+35	Can delete opt_examenes	9	delete_opt_examenes
+36	Can view opt_examenes	9	view_opt_examenes
+37	Can add opt_ortoptica_tipo	10	add_opt_ortoptica_tipo
+38	Can change opt_ortoptica_tipo	10	change_opt_ortoptica_tipo
+39	Can delete opt_ortoptica_tipo	10	delete_opt_ortoptica_tipo
+40	Can view opt_ortoptica_tipo	10	view_opt_ortoptica_tipo
+41	Can add opt_refraccion_tipo_estado	11	add_opt_refraccion_tipo_estado
+42	Can change opt_refraccion_tipo_estado	11	change_opt_refraccion_tipo_estado
+43	Can delete opt_refraccion_tipo_estado	11	delete_opt_refraccion_tipo_estado
+44	Can view opt_refraccion_tipo_estado	11	view_opt_refraccion_tipo_estado
+45	Can add opt_test_adicional_tipo	12	add_opt_test_adicional_tipo
+46	Can change opt_test_adicional_tipo	12	change_opt_test_adicional_tipo
+47	Can delete opt_test_adicional_tipo	12	delete_opt_test_adicional_tipo
+48	Can view opt_test_adicional_tipo	12	view_opt_test_adicional_tipo
+49	Can add opt_tipo_test_dem	13	add_opt_tipo_test_dem
+50	Can change opt_tipo_test_dem	13	change_opt_tipo_test_dem
+51	Can delete opt_tipo_test_dem	13	delete_opt_tipo_test_dem
+52	Can view opt_tipo_test_dem	13	view_opt_tipo_test_dem
+53	Can add opt_transaccion	14	add_opt_transaccion
+54	Can change opt_transaccion	14	change_opt_transaccion
+55	Can delete opt_transaccion	14	delete_opt_transaccion
+56	Can view opt_transaccion	14	view_opt_transaccion
+57	Can add opt_refraccion_vision	15	add_opt_refraccion_vision
+58	Can change opt_refraccion_vision	15	change_opt_refraccion_vision
+59	Can delete opt_refraccion_vision	15	delete_opt_refraccion_vision
+60	Can view opt_refraccion_vision	15	view_opt_refraccion_vision
+61	Can add opt_refraccion_estado	16	add_opt_refraccion_estado
+62	Can change opt_refraccion_estado	16	change_opt_refraccion_estado
+63	Can delete opt_refraccion_estado	16	delete_opt_refraccion_estado
+64	Can view opt_refraccion_estado	16	view_opt_refraccion_estado
+65	Can add opt_refraccion	17	add_opt_refraccion
+66	Can change opt_refraccion	17	change_opt_refraccion
+67	Can delete opt_refraccion	17	delete_opt_refraccion
+68	Can view opt_refraccion	17	view_opt_refraccion
+69	Can add opt_paciente	18	add_opt_paciente
+70	Can change opt_paciente	18	change_opt_paciente
+71	Can delete opt_paciente	18	delete_opt_paciente
+72	Can view opt_paciente	18	view_opt_paciente
+73	Can add opt_ortoptica	19	add_opt_ortoptica
+74	Can change opt_ortoptica	19	change_opt_ortoptica
+75	Can delete opt_ortoptica	19	delete_opt_ortoptica
+76	Can view opt_ortoptica	19	view_opt_ortoptica
+77	Can add opt_oftalmologia	20	add_opt_oftalmologia
+78	Can change opt_oftalmologia	20	change_opt_oftalmologia
+79	Can delete opt_oftalmologia	20	delete_opt_oftalmologia
+80	Can view opt_oftalmologia	20	view_opt_oftalmologia
+81	Can add opt_lentes_contacto	21	add_opt_lentes_contacto
+82	Can change opt_lentes_contacto	21	change_opt_lentes_contacto
+83	Can delete opt_lentes_contacto	21	delete_opt_lentes_contacto
+84	Can view opt_lentes_contacto	21	view_opt_lentes_contacto
+\.
+
+
+--
+-- TOC entry 3098 (class 0 OID 18534)
+-- Dependencies: 205
+-- Data for Name: auth_group_permissions; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.auth_group_permissions (id, group_id, permission_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3100 (class 0 OID 18542)
+-- Dependencies: 207
+-- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
+1	pbkdf2_sha256$216000$PTUq2oTcLYLy$p6w0kKfzTeEZDKNpn55S9IBjHuetCJlcvG0Nb2sMnGM=	2021-03-19 11:57:07.956277-05	t	tesis			andyviera212@hotmail.com	t	t	2021-03-19 11:38:20.942435-05
+\.
+
+
+--
+-- TOC entry 3102 (class 0 OID 18552)
+-- Dependencies: 209
+-- Data for Name: auth_user_groups; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.auth_user_groups (id, user_id, group_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3104 (class 0 OID 18560)
+-- Dependencies: 211
+-- Data for Name: auth_user_user_permissions; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.auth_user_user_permissions (id, user_id, permission_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3106 (class 0 OID 18620)
+-- Dependencies: 213
+-- Data for Name: django_admin_log; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) FROM stdin;
+\.
+
+
+--
+-- TOC entry 3090 (class 0 OID 18495)
+-- Dependencies: 197
+-- Data for Name: django_migrations; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.django_migrations (id, app, name, applied) FROM stdin;
+1	contenttypes	0001_initial	2021-03-14 12:03:36.561109-05
+2	auth	0001_initial	2021-03-14 12:03:36.606861-05
+3	admin	0001_initial	2021-03-14 12:03:36.669142-05
+4	admin	0002_logentry_remove_auto_add	2021-03-14 12:03:36.686073-05
+5	admin	0003_logentry_add_action_flag_choices	2021-03-14 12:03:36.692414-05
+6	administracion	0001_initial	2021-03-14 12:03:36.874865-05
+7	contenttypes	0002_remove_content_type_name	2021-03-14 12:03:36.994465-05
+8	auth	0002_alter_permission_name_max_length	2021-03-14 12:03:37.003246-05
+9	auth	0003_alter_user_email_max_length	2021-03-14 12:03:37.013936-05
+10	auth	0004_alter_user_username_opts	2021-03-14 12:03:37.026703-05
+11	auth	0005_alter_user_last_login_null	2021-03-14 12:03:37.043304-05
+12	auth	0006_require_contenttypes_0002	2021-03-14 12:03:37.047327-05
+13	auth	0007_alter_validators_add_error_messages	2021-03-14 12:03:37.056538-05
+14	auth	0008_alter_user_username_max_length	2021-03-14 12:03:37.077566-05
+15	auth	0009_alter_user_last_name_max_length	2021-03-14 12:03:37.088566-05
+16	auth	0010_alter_group_name_max_length	2021-03-14 12:03:37.099736-05
+17	auth	0011_update_proxy_permissions	2021-03-14 12:03:37.128252-05
+18	auth	0012_alter_user_first_name_max_length	2021-03-14 12:03:37.138992-05
+19	sessions	0001_initial	2021-03-14 12:03:37.149203-05
+20	administracion	0002_opt_paciente_estado	2021-03-14 12:07:34.972221-05
+\.
+
+
+--
+-- TOC entry 3137 (class 0 OID 18894)
+-- Dependencies: 244
+-- Data for Name: django_session; Type: TABLE DATA; Schema: public; Owner: tesis
+--
+
+COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
+01m022r9nahia7zkhzdammyn7s3o2w37	.eJxVjDsOwjAQBe_iGll2_Isp6TmDtd5d4wBypDipEHeHSCmgfTPzXiLBtta0dV7SROIstDj9bhnwwW0HdId2myXObV2mLHdFHrTL60z8vBzu30GFXr91iSGqgiWONihyIyDSoLPPypiiODjODg15bS2DsYykiJ0HFzQ5HEC8P_aqOIw:1lNIQt:FiLKu6pt0U7KH4rWh8CjK1w0k1zCDMNiiRtunp5DpgY	2021-04-02 11:57:07.963104-05
+\.
+
+
+--
+-- TOC entry 3143 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: administracion_adm_sucursal_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_adm_sucursal_id_seq', 10, true);
+
+
+--
+-- TOC entry 3144 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: administracion_opt_diagnostico_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_diagnostico_id_seq', 1, false);
+
+
+--
+-- TOC entry 3145 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: administracion_opt_examenes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_examenes_id_seq', 1, false);
+
+
+--
+-- TOC entry 3146 (class 0 OID 0)
+-- Dependencies: 242
+-- Name: administracion_opt_lentes_contacto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_lentes_contacto_id_seq', 1, false);
+
+
+--
+-- TOC entry 3147 (class 0 OID 0)
+-- Dependencies: 240
+-- Name: administracion_opt_oftalmologia_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_oftalmologia_id_seq', 1, false);
+
+
+--
+-- TOC entry 3148 (class 0 OID 0)
+-- Dependencies: 238
+-- Name: administracion_opt_ortoptica_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_ortoptica_id_seq', 1, false);
+
+
+--
+-- TOC entry 3149 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: administracion_opt_ortoptica_tipo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_ortoptica_tipo_id_seq', 1, false);
+
+
+--
+-- TOC entry 3150 (class 0 OID 0)
+-- Dependencies: 236
+-- Name: administracion_opt_paciente_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_paciente_id_seq', 2, true);
+
+
+--
+-- TOC entry 3151 (class 0 OID 0)
+-- Dependencies: 232
+-- Name: administracion_opt_refraccion_estado_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_refraccion_estado_id_seq', 1, false);
+
+
+--
+-- TOC entry 3152 (class 0 OID 0)
+-- Dependencies: 234
+-- Name: administracion_opt_refraccion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_refraccion_id_seq', 1, false);
+
+
+--
+-- TOC entry 3153 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: administracion_opt_refraccion_tipo_estado_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_refraccion_tipo_estado_id_seq', 1, false);
+
+
+--
+-- TOC entry 3154 (class 0 OID 0)
+-- Dependencies: 230
+-- Name: administracion_opt_refraccion_vision_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_refraccion_vision_id_seq', 1, false);
+
+
+--
+-- TOC entry 3155 (class 0 OID 0)
+-- Dependencies: 224
+-- Name: administracion_opt_test_adicional_tipo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_test_adicional_tipo_id_seq', 1, false);
+
+
+--
+-- TOC entry 3156 (class 0 OID 0)
+-- Dependencies: 226
+-- Name: administracion_opt_tipo_test_dem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_tipo_test_dem_id_seq', 1, false);
+
+
+--
+-- TOC entry 3157 (class 0 OID 0)
+-- Dependencies: 228
+-- Name: administracion_opt_transaccion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.administracion_opt_transaccion_id_seq', 1, false);
+
+
+--
+-- TOC entry 3158 (class 0 OID 0)
+-- Dependencies: 202
+-- Name: auth_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.auth_group_id_seq', 1, false);
+
+
+--
+-- TOC entry 3159 (class 0 OID 0)
+-- Dependencies: 204
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.auth_group_permissions_id_seq', 1, false);
+
+
+--
+-- TOC entry 3160 (class 0 OID 0)
+-- Dependencies: 200
+-- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.auth_permission_id_seq', 84, true);
+
+
+--
+-- TOC entry 3161 (class 0 OID 0)
+-- Dependencies: 208
+-- Name: auth_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.auth_user_groups_id_seq', 1, false);
+
+
+--
+-- TOC entry 3162 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.auth_user_id_seq', 1, true);
+
+
+--
+-- TOC entry 3163 (class 0 OID 0)
+-- Dependencies: 210
+-- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
+
+
+--
+-- TOC entry 3164 (class 0 OID 0)
+-- Dependencies: 212
+-- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 1, false);
+
+
+--
+-- TOC entry 3165 (class 0 OID 0)
+-- Dependencies: 198
+-- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.django_content_type_id_seq', 21, true);
+
+
+--
+-- TOC entry 3166 (class 0 OID 0)
+-- Dependencies: 196
+-- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: tesis
+--
+
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 20, true);
+
+
+-- Completed on 2021-06-01 18:49:38
+
+--
+-- PostgreSQL database dump complete
+--
+
